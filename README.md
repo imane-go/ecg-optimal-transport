@@ -4,7 +4,8 @@ This project explores Optimal Transport (OT) theory in machine learning, focusin
 These tools have become increasingly important in modern ML, powering advances in generative modeling (e.g., WGANs), clustering, and distributional learning.
 
 🔗 For a foundational introduction, see:
-Cuturi, M. (2013). Sinkhorn Distances: Lightspeed Computation of Optimal Transport. NeurIPS.
+[Cuturi, M. (2013). Sinkhorn Distances: Lightspeed Computation of Optimal Transport. NeurIPS.]
+(https://arxiv.org/abs/1306.0895)
 
 
 # ECG Arrhythmia Trajectory Modeling Using Optimal Transport
