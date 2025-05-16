@@ -1,4 +1,4 @@
-# Optimal Transport theory overview :
+# Optimal Transport Theory Overview :
 This project explores Optimal Transport (OT) theory in machine learning, focusing on the Wasserstein distance and Wasserstein barycenter. Unlike traditional metrics like Euclidean distance, Wasserstein distance captures the geometry and support of data distributions, making it significantly more precise and robust—especially when comparing non-overlapping or structured data like images, time series, or text embeddings.
 
 These tools have become increasingly important in modern ML, powering advances in generative modeling (e.g., WGANs), clustering, and distributional learning.
