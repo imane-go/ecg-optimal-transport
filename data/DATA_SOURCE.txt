@@ -1,0 +1,7 @@
+Source: MIT-BIH Arrhythmia Database
+URL: https://physionet.org/content/mitdb/1.0.0/
+Downloaded: May 16, 2024
+
+Description:
+This dataset contains 48 half-hour two-channel ambulatory ECG recordings,
+used widely for arrhythmia analysis.
