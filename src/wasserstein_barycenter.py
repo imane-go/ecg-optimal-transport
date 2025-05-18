@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import ot  # pip install POT
+import ot  
 
 resampled_cycles = np.array(resampled_cycles)  
 
