@@ -2,12 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import ot  # pip install POT
 
-# Assume each resampled cycle is a 1D distribution (same length)
-resampled_cycles = np.array(resampled_cycles)  # shape (n_cycles, n_points)
+resampled_cycles = np.array(resampled_cycles)  
 
-# Normalize each cycle to form a probability distribution (non-negative, sum = 1)
-resampled_cycles = np.maximum(resampled_cycles, 0)  # Ensure non-negativity
-resampled_cycles /= np.sum(resampled_cycles, axis=1, keepdims=True)  # Normalize
+# Normalize each cycle to form a probability distribution 
+resampled_cycles = np.maximum(resampled_cycles, 0)  
+resampled_cycles /= np.sum(resampled_cycles, axis=1, keepdims=True)  
 
 # Support (assuming all signals are sampled on the same grid)
 n_points = resampled_cycles.shape[1]
