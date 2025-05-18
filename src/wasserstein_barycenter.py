@@ -1,14 +1,30 @@
-# Compute the average cycle (Wasserstein barycenter)
-barycenter = np.mean(resampled_cycles, axis=0)
+import numpy as np
+import matplotlib.pyplot as plt
+import ot  # pip install POT
 
-# Plot the original cycles and their barycenter for visualization
+# Assume each resampled cycle is a 1D distribution (same length)
+resampled_cycles = np.array(resampled_cycles)  # shape (n_cycles, n_points)
+
+# Normalize each cycle to form a probability distribution (non-negative, sum = 1)
+resampled_cycles = np.maximum(resampled_cycles, 0)  # Ensure non-negativity
+resampled_cycles /= np.sum(resampled_cycles, axis=1, keepdims=True)  # Normalize
+
+# Support (assuming all signals are sampled on the same grid)
+n_points = resampled_cycles.shape[1]
+x = np.linspace(0, 1, n_points)  # Uniform grid
+
+# Compute Wasserstein barycenter using POT
+barycenter = ot.barycenter.barycenter_1d(resampled_cycles, x)
+
+# Plot original cycles and Wasserstein barycenter
 plt.figure(figsize=(10, 10))
 for cycle in resampled_cycles:
-    plt.plot(cycle, color='blue', alpha=0.5)  # Original cycles
-plt.plot(barycenter, color='red', linewidth=2)  # Barycenter
-plt.title('Average Cycle (Wasserstein Barycenter)')
-plt.xlabel('Sample')
-plt.ylabel('Amplitude')
+    plt.plot(x, cycle, color='blue', alpha=0.3)
+plt.plot(x, barycenter, color='red', linewidth=2, label='Wasserstein Barycenter')
+plt.title('Wasserstein Barycenter of ECG Cycles')
+plt.xlabel('Normalized Time')
+plt.ylabel('Amplitude (Probability)')
 plt.grid(True)
-plt.savefig('wasserstein barycenter.png')
+plt.legend()
+plt.savefig('wasserstein_barycenter.png')
 plt.show()
